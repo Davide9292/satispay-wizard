@@ -1,0 +1,37 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        brand: {
+          red: '#FF3D00',
+          cream: '#FFFBEF',
+        },
+        surface: {
+          white: '#FFFFFF',
+        },
+        text: {
+          primary: '#333333',
+          secondary: '#787878',
+        },
+        ui: {
+          grey: '#E6E6E6',
+          success: '#4CD964',
+          error: '#FF3B30',
+        }
+      },
+      fontFamily: {
+        sans: ['Rubik', 'sans-serif'],
+      },
+      borderRadius: {
+        'pill': '9999px',
+        'card': '16px',
+      }
+    },
+  },
+  plugins: [],
+}
