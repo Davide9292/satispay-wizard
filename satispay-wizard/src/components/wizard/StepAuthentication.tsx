@@ -26,7 +26,7 @@ export const StepAuthentication: React.FC = () => {
             <div className="mt-4">
                 <InputText
                     label="Nome"
-                    placeholder="Inserisci il tuo nome"
+                    placeholder="Es. Mario Rossi"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     autoFocus
