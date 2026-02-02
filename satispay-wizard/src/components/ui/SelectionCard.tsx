@@ -15,6 +15,7 @@ export const SelectionCard: React.FC<SelectionCardProps> = ({ title, icon: Icon,
         <motion.div
             onClick={onClick}
             whileTap={{ scale: 0.96 }}
+            whileHover={{ scale: 1.02 }}
             className={cn(
                 "cursor-pointer rounded-card p-6 flex flex-col items-center justify-center gap-4 transition-all duration-300",
                 "bg-white border",
