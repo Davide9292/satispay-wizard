@@ -31,10 +31,15 @@ const WizardManager: React.FC = () => {
   );
 };
 
+import { Footer } from './components/ui/Footer';
+
 function App() {
   return (
     <WizardProvider>
-      <WizardManager />
+      <div className="min-h-screen flex flex-col">
+        <WizardManager />
+        <Footer />
+      </div>
     </WizardProvider>
   );
 }
