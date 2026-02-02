@@ -31,10 +31,15 @@ const WizardManager: React.FC = () => {
   );
 };
 
+import { Navbar } from './components/ui/Navbar';
+
 function App() {
   return (
     <WizardProvider>
-      <WizardManager />
+      <Navbar />
+      <div className="pt-16"> {/* Add padding for fixed navbar */}
+        <WizardManager />
+      </div>
     </WizardProvider>
   );
 }
