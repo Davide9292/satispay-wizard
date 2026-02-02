@@ -18,7 +18,7 @@ export const StepThankYou: React.FC = () => {
             </motion.div>
 
             <h1 className="text-4xl font-bold text-text-primary">
-                Tutto pronto!
+                Evviva! Tutto pronto!
             </h1>
 
             <div className="bg-white p-6 rounded-card border border-ui-grey w-full shadow-sm text-left mt-4">
