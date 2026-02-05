@@ -4,7 +4,7 @@ import { Facebook, Twitter, Instagram, Linkedin, Send } from 'lucide-react';
 export const Footer: React.FC = () => {
     return (
         <footer className="w-full bg-white border-t border-ui-grey/50 pt-12 pb-6 mt-16 text-text-primary">
-            <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
 
                 {/* Column 1: Brand */}
                 <div className="flex flex-col gap-4">
@@ -27,16 +27,7 @@ export const Footer: React.FC = () => {
                     <a href="#" className="text-text-secondary hover:text-brand-red transition-colors text-sm">Servizi</a>
                 </div>
 
-                {/* Column 3: Company */}
-                <div className="flex flex-col gap-3">
-                    <h4 className="font-bold text-lg mb-1">Azienda</h4>
-                    <a href="#" className="text-text-secondary hover:text-brand-red transition-colors text-sm">Chi siamo</a>
-                    <a href="#" className="text-text-secondary hover:text-brand-red transition-colors text-sm">Lavora con noi</a>
-                    <a href="#" className="text-text-secondary hover:text-brand-red transition-colors text-sm">Stampa</a>
-                    <a href="#" className="text-text-secondary hover:text-brand-red transition-colors text-sm">Blog</a>
-                </div>
-
-                {/* Column 4: Newsletter/Support */}
+                {/* Column 3: Newsletter/Support */}
                 <div className="flex flex-col gap-4">
                     <h4 className="font-bold text-lg mb-1">Resta aggiornato</h4>
                     <div className="flex gap-2">
