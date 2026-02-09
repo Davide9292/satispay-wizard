@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useWizard } from '../../hooks/useWizard';
 import { InputText } from '../ui/InputText';
 import { PrimaryButton } from '../ui/PrimaryButton';
 
 export const StepAuthentication: React.FC = () => {
     const { data, updateData, nextStep } = useWizard();
-    const [name, setName] = useState(data.name);
 
     const handleNext = () => {
-        if (name.trim()) {
-            updateData({ name });
+        if (data.name.trim()) {
             nextStep();
         }
     };
@@ -27,8 +25,8 @@ export const StepAuthentication: React.FC = () => {
                 <InputText
                     label="Nome"
                     placeholder="Es. Mario Rossi"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    value={data.name}
+                    onChange={(e) => updateData({ name: e.target.value })}
                     autoFocus
                 />
             </div>
@@ -37,7 +35,7 @@ export const StepAuthentication: React.FC = () => {
                 <PrimaryButton
                     fullWidth
                     onClick={handleNext}
-                    disabled={!name.trim()}
+                    disabled={!data.name.trim()}
                 >
                     Continua
                 </PrimaryButton>

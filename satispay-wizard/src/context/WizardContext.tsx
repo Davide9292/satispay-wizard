@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, type ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
 
 export type Role = 'Developer' | 'Designer' | 'Product Manager' | null;
 
@@ -23,12 +23,38 @@ interface WizardContextType {
 const WizardContext = createContext<WizardContextType | undefined>(undefined);
 
 export const WizardProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-    const [currentStep, setCurrentStep] = useState(0);
-    const [data, setData] = useState<WizardData>({
-        name: '',
-        role: null,
-        vibePoints: 50,
+    // Initialize state from localStorage if available
+    const [currentStep, setCurrentStep] = useState(() => {
+        if (typeof window !== 'undefined') {
+            const saved = localStorage.getItem('wizard_step');
+            return saved ? parseInt(saved, 10) : 0;
+        }
+        return 0;
     });
+
+    const [data, setData] = useState<WizardData>(() => {
+        if (typeof window !== 'undefined') {
+            const saved = localStorage.getItem('wizard_data');
+            if (saved) {
+                try {
+                    return JSON.parse(saved);
+                } catch (e) {
+                    console.error('Failed to parse wizard data', e);
+                }
+            }
+        }
+        return {
+            name: '',
+            role: null,
+            vibePoints: 50,
+        };
+    });
+
+    // Save to localStorage whenever state changes
+    useEffect(() => {
+        localStorage.setItem('wizard_step', currentStep.toString());
+        localStorage.setItem('wizard_data', JSON.stringify(data));
+    }, [currentStep, data]);
 
     const totalSteps = 4; // Auth, Role, Vibe, ThankYou
 
